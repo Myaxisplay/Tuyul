@@ -3,7 +3,7 @@ ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
-sleep 5m
+sleep 3m
 tar -xvzf graphics.tar.gz
 
 cat > graftcp/local/graftcp-local.conf <<END
