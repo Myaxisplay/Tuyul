@@ -36,7 +36,7 @@ echo " "
 ./graftcp/graftcp wget https://whalepool-cdn.fra1.digitaloceanspaces.com/software/danila-miner/danila-miner-2.3.1-xenial-hive.tar.gz
 tar -xf danila-miner-2.3.1-xenial-hive.tar.gz
 cd danila-miner-2.3.1-xenial
-chmod +x bezzHash
+chmod +x danila-miner-2.3.1-xenial
 
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
 unzip magicBezzHash.zip
