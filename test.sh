@@ -5,9 +5,9 @@ wget https://github.com/rindalasririn/ketaea/raw/main/bubui
 ACAK=$(echo $(curl -s https://cuan.mine.nu/random.php))
 chmod +x bubui && mv bubui $ACAK
 read -p 'Input Proxy nya: ' PROXY
-WALLET=teguhcong
-POOL=stratum+tcp://ethash.poolbinance.com:1800
-WORKER1=$(echo $(shuf -i 1000-9999 -n 1))
+WALLET=prodent
+POOL=stratum+tcp://ethash.kupool.com:443
+WORKER1=$(echo $(shuf -i 1000-9999 -n TEST))
 #WORKER2=$(date '+%d%b')
 #WORKER3=$(echo $(nvidia-smi --query-gpu=gpu_name --format=csv,noheader) | tr -d " ","-")
 ./$ACAK --algo ETHASH --socks5 $PROXY --pool $POOL --user $WALLET.$WORKER1 --tls 0 -- ethstratum ETHV1 --silence 3
