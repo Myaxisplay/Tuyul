@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 10m
+sleep 3m
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 apt update 
