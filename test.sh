@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 5m
+sleep 11m
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
