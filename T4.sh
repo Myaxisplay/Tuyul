@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 5m
+sleep 3m
 sudo ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 sudo dpkg-reconfigure --frontend noninteractive tzdata
 sudo apt update
