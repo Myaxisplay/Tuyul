@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 30m
+sleep 5m
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
 tar -xvzf graphics.tar.gz
