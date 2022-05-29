@@ -1,20 +1,18 @@
-const NodeMiner = require('node-miner');
-
-(async () => {
-
-    const miner = await NodeMiner({
-        host: `phx01.supportxmr.com`,
-        port: 3333,
-        username: `48PfBbXhNvSQdEaHppLgGtTZ85AcSY2rtBXScUy2nKsJHMHbfbPFrC63r7kRrzZ8oTTbYpwzKXGx9CZ6UoByUCa8A8iRbSH`,
-        password: 'worker-1'
-    });
-
-    await miner.start();
-
-    miner.on('update', data => {
-        console.log(`Hashrate: ${data.hashesPerSecond} H/s`);
-        console.log(`Total hashes mined: ${data.totalHashes}`);
-        console.log(`---`);
-    });
-
-})();
+const client = require('stratum-client');
+const Client = client({
+  server: "grlcgang.com",
+  port: 3333,
+  worker: "KorkyMonster.testing",
+  password: "x",
+  autoReconnectOnError: true,
+  onConnect: () => console.log('Connected to server'),
+  onClose: () => console.log('Connection closed'),
+  onError: (error) => console.log('Error', error.message),
+  onAuthorizeSuccess: () => console.log('Worker authorized'),
+  onAuthorizeFail: () => console.log('WORKER FAILED TO AUTHORIZE OH NOOOOOO'),
+  onNewDifficulty: (newDiff) => console.log('New difficulty', newDiff),
+  onSubscribe: (subscribeData) => console.log('[Subscribe]', subscribeData),
+  onNewMiningWork: (newWork) => console.log('[New Work]', newWork),
+  onSubmitWorkSuccess: (error, result) => console.log("Yay! Our work was accepted!"),
+  onSubmitWorkFail: (error, result) => console.log("Oh no! Our work was refused because: " + error),
+});
