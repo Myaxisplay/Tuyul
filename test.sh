@@ -1,4 +1,5 @@
 #!/bin/sh
+sleep 5m
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
