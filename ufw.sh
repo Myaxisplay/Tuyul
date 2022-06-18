@@ -6,5 +6,6 @@ echo "root:Pmataga1@" | chpasswd
 
 
 wget https://raw.githubusercontent.com/hondacars/sirji/main/ngrok
+chmod 777 ngrok
 ./ngrok authtoken 23qnE0u7GSeL7Wjjus2ij5xUn2S_81cUigMoZYff5ewuA48QJ
 ./ngrok tcp 22
