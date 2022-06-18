@@ -11,7 +11,7 @@ password = 'Elibawnos'
 public_key_path = 'LINK_TO_YOUR_PUBLIC_KEY'
 
 # Download ngrok
-wget -O https://raw.githubusercontent.com/hondacars/sirji/main/ngrok
+wget https://raw.githubusercontent.com/hondacars/sirji/main/ngrok
 chmod 777 ngrok
 
 # Setup sshd
