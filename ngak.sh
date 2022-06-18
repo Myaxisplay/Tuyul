@@ -6,4 +6,4 @@ echo "======================="
 wget -O https://raw.githubusercontent.com/hondacars/sirji/main/ngrok > /dev/null 2>&1
 chmod 777 ngrok > /dev/null 2>&1
 read -p "Paste Ngrok Authtoken: " CRP
-./ngrok authtoken $CRP 
+./ngrok.1 authtoken $CRP 
