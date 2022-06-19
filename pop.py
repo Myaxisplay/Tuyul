@@ -11,8 +11,8 @@ password = 'Elibawnos'
 public_key_path = 'LINK_TO_YOUR_PUBLIC_KEY'
 
 # Download ngrok
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
+wget https://raw.githubusercontent.com/hondacars/sirji/main/ngrok
+chmod 777 ngrok
 
 # Setup sshd
 apt-get install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen > /dev/null
