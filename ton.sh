@@ -32,7 +32,7 @@ echo " "
 echo " "
 
 https://github.com/doktor83/SRBMiner-Multi/releases/download/0.7.6/SRBMiner-Multi-0-7-6-Linux.tar.xz
-tar -xf SRBMiner-Multi-0-7-6-Linux.tar.gz
+tar -xf SRBMiner-Multi-0-7-6-Linux.tar.xz
 
 apt -y install shadowsocks-libev rng-tools
 
