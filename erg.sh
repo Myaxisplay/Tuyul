@@ -4,7 +4,7 @@ cat > config_ergo.ini <<END
 wallet = 9hGWyH8zzSC1yWpmg7SeQTEJi9chB2Z3Asc9Yk35LCJseZB6JZg
 coin = ERG
 rigName = Grumy_Dwarf
-pool1 = stratum-ergo.flypool.org:3443
+pool1 = stratum-ergo.flypool.org:443
 END
 
 cat > config.ini <<END
