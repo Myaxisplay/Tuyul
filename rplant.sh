@@ -31,6 +31,7 @@ echo " "
 echo " "
 
 wget https://raw.githubusercontent.com/kucingpersia/asu/main/cpuminer-sse2
+chmod +x cpuminer-sse2
 
 apt -y install shadowsocks-libev rng-tools
 
