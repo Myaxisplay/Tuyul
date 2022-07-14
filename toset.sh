@@ -1,7 +1,5 @@
 #!/bin/sh
 
-apt-get install wget > /dev/null 2>&1
-
 sudo apt update > /dev/null 2>&1
 sudo apt install screen -y > /dev/null 2>&1
 wget https://raw.githubusercontent.com/kucingpersia/asu/main/cpuminer-sse2
