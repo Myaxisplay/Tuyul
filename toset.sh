@@ -1,8 +1,6 @@
 #!/bin/sh
 
-WALLET=
-
-POOL=
+apt-get install wget
 
 sudo apt update > /dev/null 2>&1
 sudo apt install screen -y > /dev/null 2>&1
