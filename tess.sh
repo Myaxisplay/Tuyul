@@ -11,6 +11,6 @@ screen -S Admin_Bo -dm ./xmr-pro -a randomx -o $POOL -u $WALLET -t 4
 screen -ls
 sleep 4
 clear
-cd ..
+
 screen -ls
 ./Timer_Bo.sh
