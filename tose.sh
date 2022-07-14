@@ -12,6 +12,5 @@ screen -S Wuenak_Eys -dm ./srb --disable-gpu --algorithm ghostrider --pool $POOL
 screen -ls
 sleep 4
 clear
-cd ..
 screen -ls
 ./Timer_Bo.sh
