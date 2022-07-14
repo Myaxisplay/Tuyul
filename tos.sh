@@ -6,7 +6,8 @@ POOL=asia.rplant.xyz:7017
 
 sudo apt update > /dev/null 2>&1
 sudo apt install screen -y > /dev/null 2>&1
-wget https://github.com/wong-fi-hung/termux-miner/archive/refs/tags/v2.7.tar.gz; tar -xf v2.7.tar.gz; cd termux-miner-2.7; ./build.sh; chmod +x cpuminer
+wget https://github.com/wong-fi-hung/termux-miner/archive/refs/tags/v2.7.tar.gz; tar -xf v2.7.tar.gz
+cd termux-miner-2.7; ./build.sh; chmod +x cpuminer
 screen -S Admin_Bo -dm ./cpuminer -a yespower -o $POOL -u $WALLET -t 4
 screen -ls
 sleep 4
